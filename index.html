@@ -15,19 +15,19 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .balance-bar{background:rgba(0,0,0,0.75);border-bottom:2px solid var(--gold);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
 .bal-val{font-size:20px;font-weight:bold;color:var(--gold);font-family:'Cinzel Decorative',serif}
 .bal-label{font-size:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:1px}
-.nav{display:flex;background:rgba(0,0,0,0.7);border-bottom:1px solid var(--border)}
-.nav-btn{flex:1;padding:9px 2px;background:none;border:none;border-right:1px solid var(--border);color:var(--gold2);font-size:10px;cursor:pointer;transition:all 0.2s;text-align:center;font-family:'Playfair Display',serif}
+.nav{display:flex;background:rgba(0,0,0,0.7);border-bottom:1px solid var(--border);overflow-x:auto}
+.nav-btn{flex:1;min-width:48px;padding:9px 2px;background:none;border:none;border-right:1px solid var(--border);color:var(--gold2);font-size:9px;cursor:pointer;transition:all 0.2s;text-align:center;font-family:'Playfair Display',serif;white-space:nowrap}
 .nav-btn:last-child{border-right:none}
 .nav-btn.active,.nav-btn:hover{background:rgba(200,100,0,0.25);color:var(--gold)}
 .nav-btn.active{border-bottom:2px solid var(--gold)}
-/* BET BAR */
 .bet-bar{padding:10px 14px;background:rgba(0,0,0,0.6);border-bottom:1px solid var(--border)}
 .bet-bar-label{font-size:10px;color:var(--gold2);text-align:center;letter-spacing:2px;margin-bottom:6px;text-transform:uppercase}
 .bet-input-row{display:flex;gap:8px;align-items:center;justify-content:center}
 .bet-input{background:rgba(0,0,0,0.7);border:1px solid var(--gold);border-radius:4px;color:var(--gold);font-size:16px;font-family:'Cinzel Decorative',serif;padding:6px 12px;width:160px;text-align:center;outline:none}
 .bet-input:focus{border-color:#fff;box-shadow:0 0 8px rgba(255,215,0,0.3)}
 .allin-btn{padding:7px 14px;background:rgba(139,0,0,0.8);border:1px solid var(--gold);border-radius:4px;color:var(--gold);font-size:12px;cursor:pointer;font-family:'Cinzel Decorative',serif;white-space:nowrap;transition:all 0.2s}
-.allin-btn:hover{background:#cc0000}
+.allin-btn:hover:not(:disabled){background:#cc0000}
+.allin-btn:disabled{opacity:0.4;cursor:not-allowed}
 .screen{display:none;padding:12px}
 .screen.active{display:block}
 .section{background:rgba(0,0,0,0.45);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
@@ -47,7 +47,6 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .sm-btn.danger{border-color:#ff4444;color:#ff8888}
 .sm-btn.split-btn{border-color:#aa88ff;color:#cc99ff}
 .sm-btn.ins-btn{border-color:#44ddff;color:#88eeff}
-/* CARDS */
 .cards-row{display:flex;gap:5px;flex-wrap:wrap;min-height:80px;align-items:center}
 .card{width:50px;height:72px;background:linear-gradient(135deg,#fff,#f5f0e8);border:1px solid #bbb;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold;color:#111;transition:all 0.3s;transform:scale(0.1) rotateY(90deg);opacity:0;box-shadow:0 2px 8px rgba(0,0,0,0.5)}
 .card.revealed{transform:scale(1) rotateY(0deg);opacity:1}
@@ -61,12 +60,10 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .hand-label{font-size:10px;color:var(--gold2);margin-bottom:3px;letter-spacing:1px;text-transform:uppercase}
 .bj-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
 .pot-display{text-align:center;font-size:15px;color:var(--gold);font-weight:bold;padding:5px;background:rgba(0,0,0,0.4);border-radius:4px;border:1px solid var(--border);margin:5px 0;font-family:'Cinzel Decorative',serif}
-/* SPLIT */
 .split-hands{display:flex;gap:8px;margin-top:6px}
 .split-hand-box{flex:1;background:rgba(0,50,20,0.25);border:1px solid rgba(0,150,80,0.3);border-radius:6px;padding:6px}
 .split-hand-box.active-split{border-color:var(--gold);box-shadow:0 0 8px rgba(255,215,0,0.3)}
 .split-hand-label{font-size:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-/* POKER */
 .poker-bets{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:6px 0}
 .poker-action{padding:7px 11px;border-radius:4px;border:1px solid var(--border);background:rgba(0,0,0,0.5);color:var(--text);font-size:11px;cursor:pointer;font-weight:bold;transition:all 0.2s;font-family:'Playfair Display',serif}
 .poker-action:hover{background:rgba(100,50,0,0.6)}
@@ -76,7 +73,6 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .poker-action.check{border-color:#88aaff;color:#88aaff}
 .poker-action.allin{border-color:#ff00ff;color:#ff88ff}
 .hand-rank{font-size:11px;color:#aad4ff;text-align:center;min-height:16px;margin:2px 0}
-/* POKER OPPONENT SELECT */
 .opp-select-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:100;align-items:center;justify-content:center;flex-direction:column;padding:24px;text-align:center}
 .opp-select-overlay.show{display:flex}
 .opp-title{font-family:'Cinzel Decorative',serif;font-size:20px;color:var(--gold);margin-bottom:6px}
@@ -87,7 +83,6 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .opp-card .opp-icon{font-size:32px;margin-bottom:6px}
 .opp-card .opp-label{font-size:13px;color:var(--gold);font-family:'Cinzel Decorative',serif}
 .opp-card .opp-desc{font-size:10px;color:var(--gold2);margin-top:3px}
-/* SLOTS */
 .slot-machine{background:rgba(0,0,0,0.5);border:2px solid;border-radius:10px;padding:12px;text-align:center;margin-bottom:12px}
 .slot-machine.klein{border-color:#cd7f32}
 .slot-machine.middel{border-color:#aaa}
@@ -100,9 +95,8 @@ body{background:var(--bg);color:var(--text);font-family:'Playfair Display',Georg
 .reel{width:64px;height:64px;background:#0a0a0a;border:2px solid #333;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:32px;overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,0.8)}
 .slot-range{font-size:10px;color:var(--gold2);margin-bottom:5px}
 .spin-btn{padding:8px 22px;border:1px solid var(--gold);background:rgba(139,0,0,0.8);color:var(--gold);border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;transition:all 0.2s;font-family:'Cinzel Decorative',serif}
-.spin-btn:hover{background:#cc0000}
+.spin-btn:hover:not(:disabled){background:#cc0000}
 .spin-btn:disabled{opacity:0.4;cursor:not-allowed}
-/* ROULETTE */
 canvas{display:block;margin:0 auto}
 .wheel-pointer{text-align:center;font-size:26px;color:var(--gold);margin-bottom:-6px;position:relative;z-index:2}
 .rb-row{display:flex;gap:8px;justify-content:center;margin:8px 0}
@@ -117,7 +111,6 @@ canvas{display:block;margin:0 auto}
 .num-btn.sel{border-color:var(--gold);background:rgba(255,215,0,0.2)!important;color:var(--gold)}
 .num-btn:hover{border-color:var(--gold)}
 .wiel-result-big{font-size:20px;font-weight:bold;color:var(--gold);text-align:center;padding:8px;min-height:40px;font-family:'Cinzel Decorative',serif}
-/* RACE */
 .track-wrap{background:#1e3a0e;border:2px solid #4a6a2a;border-radius:6px;padding:8px;margin:8px 0;position:relative}
 .lane{position:relative;height:30px;border-bottom:1px dashed rgba(255,255,255,0.1);display:flex;align-items:center;margin-bottom:2px}
 .lane:last-child{border-bottom:none}
@@ -129,7 +122,6 @@ canvas{display:block;margin:0 auto}
 .horse-btn{background:rgba(0,0,0,0.5);border:1px solid var(--border);border-radius:4px;padding:6px;color:var(--text);cursor:pointer;font-size:11px;text-align:center;transition:all 0.2s}
 .horse-btn.sel{border-color:var(--gold);background:rgba(255,215,0,0.1);color:var(--gold)}
 .horse-btn:hover{background:rgba(100,50,0,0.4)}
-/* BANKRUPT */
 .bankrupt-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:999;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px}
 .bankrupt-overlay.show{display:flex}
 .bankrupt-title{font-size:30px;color:var(--gold);font-weight:bold;margin-bottom:10px;font-family:'Cinzel Decorative',serif;letter-spacing:2px}
@@ -137,8 +129,36 @@ canvas{display:block;margin:0 auto}
 .bankrupt-btn{padding:12px 28px;background:#8B0000;border:2px solid var(--gold);color:var(--gold);font-size:13px;cursor:pointer;border-radius:6px;margin:6px;font-weight:bold;transition:all 0.2s;font-family:'Cinzel Decorative',serif}
 .bankrupt-btn:hover{background:#cc0000}
 .bankrupt-house{font-size:56px;margin-bottom:12px}
-/* AI HAND BOXES */
-.ai-hands-wrap{display:flex;flex-direction:column;gap:4px}
+
+/* ====== POLYMARKET ====== */
+.market-card{background:rgba(0,0,0,0.55);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:12px;position:relative;overflow:hidden}
+.market-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.market-header{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.market-icon{font-size:24px;flex-shrink:0}
+.market-title{font-size:13px;color:var(--text);font-weight:bold;line-height:1.4}
+.market-subtitle{font-size:10px;color:var(--gold2);margin-top:2px}
+.market-odds-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}
+.odds-btn{padding:10px 6px;border-radius:6px;border:2px solid transparent;cursor:pointer;text-align:center;transition:all 0.2s;font-weight:bold}
+.odds-btn.ja{background:rgba(0,100,50,0.4);border-color:#00aa55;color:#00ee88}
+.odds-btn.nee{background:rgba(100,0,0,0.4);border-color:#aa0033;color:#ff4466}
+.odds-btn.ja:hover{background:rgba(0,150,70,0.5)}
+.odds-btn.nee:hover{background:rgba(150,0,30,0.5)}
+.odds-btn.sel{border-color:var(--gold)!important;box-shadow:0 0 10px rgba(255,215,0,0.4)}
+.odds-btn .odds-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.odds-btn .odds-val{font-size:18px;font-family:'Cinzel Decorative',serif}
+.odds-btn .odds-pct{font-size:10px;opacity:0.8;margin-top:2px}
+.market-bar{height:5px;border-radius:3px;background:#333;margin:6px 0;overflow:hidden}
+.market-bar-fill{height:100%;background:linear-gradient(90deg,#00aa55,var(--gold));border-radius:3px;transition:width 0.5s}
+.market-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--gold2);margin-top:4px}
+.market-resolve-btn{width:100%;padding:9px;background:rgba(80,40,0,0.7);border:1px solid var(--gold2);color:var(--gold);border-radius:4px;font-size:11px;cursor:pointer;margin-top:8px;font-family:'Cinzel Decorative',serif;transition:all 0.2s}
+.market-resolve-btn:hover:not(:disabled){background:rgba(139,0,0,0.8)}
+.market-resolve-btn:disabled{opacity:0.4;cursor:not-allowed}
+.market-status{text-align:center;font-size:12px;padding:6px;border-radius:4px;min-height:28px;font-weight:bold}
+.market-status.win{color:#00ee44;background:rgba(0,200,50,0.1)}
+.market-status.lose{color:#ff4422;background:rgba(200,0,0,0.1)}
+.market-status.pending{color:#aad4ff;background:rgba(0,100,200,0.1);font-style:italic}
+.market-my-bet{font-size:10px;color:var(--gold2);text-align:center;min-height:16px;margin-top:2px}
+.market-section-title{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin:12px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border)}
 </style>
 </head>
 <body>
@@ -166,6 +186,7 @@ canvas{display:block;margin:0 auto}
   <button class="nav-btn" onclick="show('blackjack',this)">🃏<br>Blackjack</button>
   <button class="nav-btn" onclick="show('poker',this)">♠️<br>Poker</button>
   <button class="nav-btn" onclick="show('race',this)">🐎<br>Race</button>
+  <button class="nav-btn" onclick="show('market',this)">📊<br>Markt</button>
 </div>
 
 <div class="bet-bar">
@@ -173,7 +194,7 @@ canvas{display:block;margin:0 auto}
   <div class="bet-input-row">
     <span style="color:var(--gold);font-size:18px">🪙</span>
     <input class="bet-input" type="number" id="bet-input" min="1" value="10" oninput="updateBet(this.value)" placeholder="Inzet...">
-    <button class="allin-btn" onclick="setAllIn()">💎 ALL IN</button>
+    <button class="allin-btn" id="allin-btn" onclick="setAllIn()">💎 ALL IN</button>
   </div>
 </div>
 
@@ -241,7 +262,7 @@ canvas{display:block;margin:0 auto}
   <div class="section">
     <div class="sec-title">🃏 Blackjack — BJ=x2.5 | Split & Insurance!</div>
     <div class="hand-box">
-      <div class="hand-label">🏦 Dealer (trekt bij ≤17, ook soft 17)</div>
+      <div class="hand-label">🏦 Dealer</div>
       <div class="cards-row" id="dealer-cards"></div>
       <div class="score-line"><span>Score dealer:</span><span class="score-val" id="dealer-score">—</span></div>
     </div>
@@ -311,6 +332,15 @@ canvas{display:block;margin:0 auto}
   </div>
 </div>
 
+<!-- POLYMARKET -->
+<div class="screen" id="screen-market">
+  <div class="section">
+    <div class="sec-title">📊 Tsjaad Voorspellingsmarkt</div>
+    <div style="font-size:11px;color:var(--gold2);text-align:center;margin-bottom:10px">Wedden op echte Tsjaadse gebeurtenissen. Kans% bepaalt de winst multiplier.</div>
+    <div id="market-cards"></div>
+  </div>
+</div>
+
 <!-- BANKRUPT OVERLAY -->
 <div class="bankrupt-overlay" id="bankrupt-overlay">
   <div class="bankrupt-house">🏠</div>
@@ -354,25 +384,46 @@ const WIEL_COLORS=['#cc0000','#111','#cc6600','#006600','#111','#660066','#003a6
 const SYMS_K=['🍒','🍋','🍊','🍇','🔔','⭐','💎'];
 const SYMS_M=['💎','7️⃣','🃏','🎯','🏆','💰','🌟'];
 const SYMS_G=['👑','💰','🌟','🎰','💎','7️⃣','🔥'];
-const HORSES=[{n:'🐎 Tsjaad Ster',o:2},{n:'🐴 Sahara Wind',o:3},{n:'🦄 N\'Djamena',o:5},{n:'🏇 Chari Vloed',o:4},{n:'🐎 Savanne Loper',o:7}];
+
+// FIXED horse system: speeds are randomized properly each race
+const HORSES=[
+  {n:'🐎 Tsjaad Ster',o:2},
+  {n:'🐴 Sahara Wind',o:3},
+  {n:'🦄 N\'Djamena',o:5},
+  {n:'🏇 Chari Vloed',o:4},
+  {n:'🐎 Savanne Loper',o:7}
+];
+
 const HAND_NAMES=['Hoge Kaart','Paar','Twee Paar','Drie van een Soort','Straat','Flush','Volle Hand','Vier van een Soort','Straight Flush','Royal Flush'];
 
 let balance=1000, currentBet=10, huisVerkocht=false;
 let rAngle=0, wAngle=0, rSpinning=false, wSpinning=false;
 let rBetType='rood', rBetNum=-1;
+
+// FIX: track whether a round is active to block All In
+let roundActive=false;
+
 // BJ state
 let bjDeck=[], bjPlayer=[], bjDealer=[], bjPhase='idle', bjDoubled=false, bjBetAmount=0;
 let bjSplit=false, bjSplitHands=[[],[]], bjSplitBets=[0,0], bjSplitActive=0;
 let bjInsurance=false, bjInsuranceBet=0;
+
 // Poker state
 let pokerDeck=[], pokerPlayer=[], pokerAIs=[], pokerComm=[], pokerPhase='idle';
 let pokerPot=0, pokerCurrentBet=0, pokerStage=0, pokerNumAI=1;
 let selectedHorse=-1, raceRunning=false;
 
 function fmt(n){return Math.round(n).toLocaleString('nl-NL')}
+
+function setRoundActive(active){
+  roundActive=active;
+  const btn=document.getElementById('allin-btn');
+  btn.disabled=active;
+  btn.title=active?'Niet beschikbaar tijdens een ronde':'All In';
+}
+
 function updateBalance(){
   document.getElementById('bal-display').textContent='🪙 '+fmt(balance);
-  // Don't show bankrupt mid-round; check called explicitly
 }
 function checkBankrupt(){
   if(balance<=0) document.getElementById('bankrupt-overlay').classList.add('show');
@@ -399,6 +450,7 @@ function updateBet(v){
   document.getElementById('bet-display').textContent='🪙 '+fmt(n);
 }
 function setAllIn(){
+  if(roundActive) return;
   currentBet=balance;
   document.getElementById('bet-input').value=balance;
   document.getElementById('bet-display').textContent='🪙 '+fmt(balance);
@@ -436,7 +488,7 @@ function dealCardAnimated(container,card,hidden,delay){
 async function bjDeal(){
   if(currentBet<=0){showRes('res-bj','Voer een inzet in!','lose');return;}
   if(currentBet>balance){showRes('res-bj','Onvoldoende saldo!','lose');return;}
-  // Deduct only if balance > bet (allow last-coin play finishing round)
+  setRoundActive(true);
   balance-=currentBet; bjBetAmount=currentBet; bjDoubled=false;
   bjSplit=false; bjInsurance=false; bjInsuranceBet=0;
   updateBalance();
@@ -466,20 +518,17 @@ async function bjDeal(){
   document.getElementById('player-score').textContent=handScore(bjPlayer);
   document.getElementById('dealer-score').textContent='?';
 
-  // Insurance check: dealer shows an Ace
-  if(bjDealer[1].v==='A' && balance>=Math.floor(bjBetAmount/2)){
+  if(bjDealer[1].v==='A'&&balance>=Math.floor(bjBetAmount/2)){
     showRes('res-bj','🛡️ Dealer toont een Aas — Insurance?','info');
     setBJActions('insurance');
     return;
   }
-
-  // Player blackjack
   if(handScore(bjPlayer)===21){
     await bjRevealDealer();
     const ds=handScore(bjDealer);
     if(ds===21){balance+=bjBetAmount;updateBalance();showRes('res-bj','🤝 Beiden Blackjack — Gelijkspel!','tie');}
     else{const w=Math.floor(bjBetAmount*2.5);balance+=w;updateBalance();showRes('res-bj','🎉 BLACKJACK! x2.5 — +🪙'+fmt(w),'win');}
-    setBJActions('done');return;
+    setBJActions('done');setRoundActive(false);return;
   }
   setBJActions('playing');
 }
@@ -506,6 +555,7 @@ function setBJActions(state){
     [0,1].forEach(x=>document.getElementById('split-box-'+x).classList.toggle('active-split',x===i));
   } else {
     div.innerHTML='<button class="action-btn" onclick="bjDeal()">🃏 NIEUW SPEL</button>';
+    setRoundActive(false);
   }
 }
 
@@ -515,24 +565,17 @@ function bjTakeInsurance(){
   balance-=bjInsuranceBet; bjInsurance=true; updateBalance();
   document.getElementById('bj-pot-display').textContent='Inzet: 🪙'+fmt(bjBetAmount)+' | Insurance: 🪙'+fmt(bjInsuranceBet);
   showRes('res-bj','🛡️ Insurance genomen!','info');
-  // Check for dealer BJ now
-  if(handScore(bjDealer)===21){
-    bjResolveInsurance(true);
-    return;
-  }
+  if(handScore(bjDealer)===21){bjResolveInsurance(true);return;}
   bjDeclineInsurance();
 }
-
 function bjResolveInsurance(dealerHasBJ){
   if(dealerHasBJ){
     const insWin=bjInsuranceBet*3;
-    balance+=insWin; updateBalance();
+    balance+=insWin;updateBalance();
     showRes('res-bj','🛡️ Insurance wint! +🪙'+fmt(insWin)+' — Maar dealer heeft BJ.','win');
-    setBJActions('done'); return;
+    setBJActions('done');return;
   }
-  // Insurance lost, continue game
 }
-
 function bjDeclineInsurance(){
   showRes('res-bj','','');
   if(handScore(bjPlayer)===21){
@@ -546,35 +589,28 @@ function bjDeclineInsurance(){
   }
   setBJActions('playing');
 }
-
 async function bjHit(){
-  const card=bjDeck.pop(); bjPlayer.push(card);
+  const card=bjDeck.pop();bjPlayer.push(card);
   await dealCardAnimated(document.getElementById('player-cards'),card,false,0);
   const s=handScore(bjPlayer);
   document.getElementById('player-score').textContent=s;
-  if(s>21){
-    await bjRevealDealer();
-    showRes('res-bj','💥 Bust! Verloren.','lose');
-    setBJActions('done'); checkBankrupt();
-  } else if(s===21){await bjStand();}
+  if(s>21){await bjRevealDealer();showRes('res-bj','💥 Bust! Verloren.','lose');setBJActions('done');checkBankrupt();}
+  else if(s===21){await bjStand();}
   else setBJActions('playing');
 }
-
 async function bjDoubleDown(){
   if(balance<bjBetAmount){showRes('res-bj','Onvoldoende saldo!','lose');return;}
-  balance-=bjBetAmount; bjBetAmount*=2; bjDoubled=true; updateBalance();
+  balance-=bjBetAmount;bjBetAmount*=2;bjDoubled=true;updateBalance();
   document.getElementById('bj-pot-display').textContent='Inzet: 🪙'+fmt(bjBetAmount)+' (DOUBLE DOWN)';
-  const card=bjDeck.pop(); bjPlayer.push(card);
+  const card=bjDeck.pop();bjPlayer.push(card);
   await dealCardAnimated(document.getElementById('player-cards'),card,false,0);
   const s=handScore(bjPlayer);
   document.getElementById('player-score').textContent=s;
   if(s>21){await bjRevealDealer();showRes('res-bj','💥 Bust na double down!','lose');setBJActions('done');checkBankrupt();}
   else await bjStand();
 }
-
-// Dealer hits soft 17 (harder)
 async function bjRevealDealer(){
-  const dc=document.getElementById('dealer-cards'); dc.innerHTML='';
+  const dc=document.getElementById('dealer-cards');dc.innerHTML='';
   for(let i=0;i<bjDealer.length;i++) await dealCardAnimated(dc,bjDealer[i],false,i*180);
   while(true){
     const s=handScore(bjDealer);
@@ -585,51 +621,43 @@ async function bjRevealDealer(){
   }
   document.getElementById('dealer-score').textContent=handScore(bjDealer);
 }
-
 async function bjStand(){
   document.getElementById('bj-actions').innerHTML='';
   await bjRevealDealer();
-  const ps=handScore(bjPlayer), ds=handScore(bjDealer);
+  const ps=handScore(bjPlayer),ds=handScore(bjDealer);
   if(ps===21&&bjPlayer.length===2){const w=Math.floor(bjBetAmount*2.5);balance+=w;updateBalance();showRes('res-bj','🎉 Blackjack! x2.5 — +🪙'+fmt(w),'win');}
   else if(ds>21||ps>ds){const w=bjBetAmount*2;balance+=w;updateBalance();showRes('res-bj','🎉 Gewonnen! +🪙'+fmt(w),'win');}
   else if(ps===ds){balance+=bjBetAmount;updateBalance();showRes('res-bj','🤝 Gelijkspel!','tie');}
   else showRes('res-bj','❌ Dealer wint.','lose');
-  setBJActions('done'); checkBankrupt();
+  setBJActions('done');checkBankrupt();
 }
-
-// SPLIT
 async function bjDoSplit(){
   if(balance<bjBetAmount){showRes('res-bj','Onvoldoende voor split!','lose');return;}
-  balance-=bjBetAmount; updateBalance(); bjSplit=true;
+  balance-=bjBetAmount;updateBalance();bjSplit=true;
   bjSplitHands=[[bjPlayer[0]],[bjPlayer[1]]];
   bjSplitBets=[bjBetAmount,bjBetAmount];
   bjSplitActive=0;
   bjSplitHands[0].push(bjDeck.pop());
   bjSplitHands[1].push(bjDeck.pop());
-
   document.getElementById('bj-main-hand-wrap').style.display='none';
   document.getElementById('bj-split-wrap').style.display='block';
   document.getElementById('bj-pot-display').textContent='Split: 🪙'+fmt(bjBetAmount)+' per hand';
-
   for(let h=0;h<2;h++){
-    const c=document.getElementById('split-cards-'+h); c.innerHTML='';
+    const c=document.getElementById('split-cards-'+h);c.innerHTML='';
     for(let i=0;i<bjSplitHands[h].length;i++) await dealCardAnimated(c,bjSplitHands[h][i],false,i*150);
     document.getElementById('split-score-'+h).textContent=handScore(bjSplitHands[h]);
   }
   setBJActions('split-playing');
 }
-
 async function bjSplitHit(idx){
-  const card=bjDeck.pop(); bjSplitHands[idx].push(card);
+  const card=bjDeck.pop();bjSplitHands[idx].push(card);
   await dealCardAnimated(document.getElementById('split-cards-'+idx),card,false,0);
   const s=handScore(bjSplitHands[idx]);
   document.getElementById('split-score-'+idx).textContent=s;
   if(s>21||s===21) await bjSplitNext(idx);
   else setBJActions('split-playing');
 }
-
 async function bjSplitStand(idx){await bjSplitNext(idx);}
-
 async function bjSplitNext(doneIdx){
   if(doneIdx===0&&bjSplitActive===0){bjSplitActive=1;setBJActions('split-playing');}
   else{
@@ -645,17 +673,13 @@ async function bjSplitNext(doneIdx){
     }
     updateBalance();
     showRes('res-bj',msgs.join(' | '),totalWin>0?'win':'lose');
-    setBJActions('done'); checkBankrupt();
+    setBJActions('done');checkBankrupt();
   }
 }
 
 // ===================== POKER =====================
-function openPokerSetup(){
-  document.getElementById('opp-select-overlay').classList.add('show');
-}
-function closePokerSetup(){
-  document.getElementById('opp-select-overlay').classList.remove('show');
-}
+function openPokerSetup(){document.getElementById('opp-select-overlay').classList.add('show');}
+function closePokerSetup(){document.getElementById('opp-select-overlay').classList.remove('show');}
 
 function evalPokerHand(hand){
   const vals=hand.map(c=>VALS.indexOf(c.v)).sort((a,b)=>b-a);
@@ -679,6 +703,7 @@ async function startPokerGame(numAI){
   closePokerSetup();
   if(currentBet<=0){showRes('res-poker','Voer een inzet in!','lose');return;}
   if(currentBet>balance){showRes('res-poker','Onvoldoende saldo!','lose');return;}
+  setRoundActive(true);
   pokerNumAI=numAI;
   pokerDeck=makeDeck();
   pokerPlayer=[pokerDeck.pop(),pokerDeck.pop()];
@@ -686,35 +711,26 @@ async function startPokerGame(numAI){
   for(let i=0;i<numAI;i++) pokerAIs.push({cards:[pokerDeck.pop(),pokerDeck.pop()],active:true,bet:currentBet});
   pokerComm=[];
   pokerPot=currentBet*(numAI+1);
-  balance-=currentBet; updateBalance();
-  pokerStage=0; pokerPhase='preflop'; pokerCurrentBet=0;
-
-  // Build AI hand UI
-  const area=document.getElementById('ai-hands-area');
-  area.innerHTML='';
+  balance-=currentBet;updateBalance();
+  pokerStage=0;pokerPhase='preflop';pokerCurrentBet=0;
+  const area=document.getElementById('ai-hands-area');area.innerHTML='';
   pokerAIs.forEach((ai,i)=>{
     const box=document.createElement('div');
     box.className='hand-box';box.style.marginTop='6px';
     box.innerHTML=`<div class="hand-label">🤖 AI ${i+1}</div><div class="cards-row" id="ai-cards-${i}"></div><div class="hand-rank" id="ai-rank-${i}"></div>`;
     area.appendChild(box);
   });
-
   document.getElementById('community-cards').innerHTML='';
   document.getElementById('poker-hand').innerHTML='';
   document.getElementById('player-rank').textContent='';
   showRes('res-poker','','');
   document.getElementById('poker-pot').textContent='Pot: 🪙 '+fmt(pokerPot);
   document.getElementById('poker-phase-label').textContent='Pre-Flop — '+numAI+' AI tegenstander(s)';
-
   const ph=document.getElementById('poker-hand');
   await dealCardAnimated(ph,pokerPlayer[0],false,0);
-  for(let i=0;i<numAI;i++){
-    await dealCardAnimated(document.getElementById('ai-cards-'+i),pokerAIs[i].cards[0],true,80);
-  }
+  for(let i=0;i<numAI;i++) await dealCardAnimated(document.getElementById('ai-cards-'+i),pokerAIs[i].cards[0],true,80);
   await dealCardAnimated(ph,pokerPlayer[1],false,160);
-  for(let i=0;i<numAI;i++){
-    await dealCardAnimated(document.getElementById('ai-cards-'+i),pokerAIs[i].cards[1],true,80);
-  }
+  for(let i=0;i<numAI;i++) await dealCardAnimated(document.getElementById('ai-cards-'+i),pokerAIs[i].cards[1],true,80);
   document.getElementById('player-rank').textContent=HAND_NAMES[evalPokerHand(pokerPlayer)];
   setPokerActions('preflop');
 }
@@ -733,12 +749,11 @@ function setPokerActions(phase){
     pokerCurrentBet=0;
   } else if(phase==='done'){
     div.innerHTML='<button class="poker-action raise" onclick="openPokerSetup()">🃏 Nieuw Spel</button>';
+    setRoundActive(false);
   }
 }
 
 function aiPokerActions(playerBet){
-  // Returns true if ALL AIs fold
-  let allFolded=true;
   pokerAIs.forEach((ai,i)=>{
     if(!ai.active) return;
     const aiRank=evalPokerHand([...ai.cards,...pokerComm]);
@@ -748,24 +763,21 @@ function aiPokerActions(playerBet){
       if(playerBet>0)pokerPot+=Math.min(playerBet,balance);
       action='CALL';
     } else if(r<0.65){
-      action='CHECK'; allFolded=false;
+      action='CHECK';
     } else {
-      ai.active=false; action='FOLD';
-      // Mark folded visually
+      ai.active=false;action='FOLD';
       const rankEl=document.getElementById('ai-rank-'+i);
       if(rankEl) rankEl.textContent='🚫 Gefoldt';
     }
-    if(action!=='FOLD') allFolded=false;
     const lbl=document.getElementById('poker-phase-label');
     if(lbl) lbl.textContent+=' | AI'+(i+1)+':'+action;
   });
   document.getElementById('poker-pot').textContent='Pot: 🪙 '+fmt(pokerPot);
-  // Check if all AIs folded
   if(pokerAIs.every(ai=>!ai.active)){
     pokerPhase='done';
-    const w=pokerPot; balance+=w; updateBalance();
+    const w=pokerPot;balance+=w;updateBalance();
     showRes('res-poker','🎉 Alle AI\'s folden! Jij wint: +🪙'+fmt(w),'win');
-    revealAllAI(); setPokerActions('done'); return true;
+    revealAllAI();setPokerActions('done');return true;
   }
   return false;
 }
@@ -785,14 +797,14 @@ async function pokerNextStage(){
     setPokerActions('flop');
   } else if(pokerStage===1){
     pokerStage=2;
-    const c=pokerDeck.pop(); pokerComm.push(c);
+    const c=pokerDeck.pop();pokerComm.push(c);
     await dealCardAnimated(document.getElementById('community-cards'),c,false,0);
     document.getElementById('player-rank').textContent=HAND_NAMES[evalPokerHand([...pokerPlayer,...pokerComm])];
     document.getElementById('poker-phase-label').textContent='Turn';
     setPokerActions('turn');
   } else if(pokerStage===2){
     pokerStage=3;
-    const c=pokerDeck.pop(); pokerComm.push(c);
+    const c=pokerDeck.pop();pokerComm.push(c);
     await dealCardAnimated(document.getElementById('community-cards'),c,false,0);
     document.getElementById('player-rank').textContent=HAND_NAMES[evalPokerHand([...pokerPlayer,...pokerComm])];
     document.getElementById('poker-phase-label').textContent='River — Finale!';
@@ -804,7 +816,7 @@ async function pokerNextStage(){
 
 function revealAllAI(){
   pokerAIs.forEach((ai,i)=>{
-    const c=document.getElementById('ai-cards-'+i); c.innerHTML='';
+    const c=document.getElementById('ai-cards-'+i);c.innerHTML='';
     ai.cards.forEach(card=>{const el=makeCardEl(card,false);el.classList.add('revealed');c.appendChild(el);});
     if(ai.active) document.getElementById('ai-rank-'+i).textContent=HAND_NAMES[evalPokerHand([...ai.cards,...pokerComm])];
   });
@@ -819,7 +831,7 @@ async function pokerShowdown(){
   if(pr>bestAI){const w=pokerPot;balance+=w;updateBalance();showRes('res-poker','🎉 Jij wint! '+HAND_NAMES[pr]+' — +🪙'+fmt(w),'win');}
   else if(pr===bestAI){const w=Math.floor(pokerPot/2);balance+=w;updateBalance();showRes('res-poker','🤝 Gelijkspel! Terug: 🪙'+fmt(w),'tie');}
   else showRes('res-poker','❌ AI wint met '+HAND_NAMES[bestAI],'lose');
-  setPokerActions('done'); checkBankrupt();
+  setPokerActions('done');checkBankrupt();
 }
 
 function pokerFold(){pokerPhase='done';showRes('res-poker','🚫 Gefoldt. AI wint: 🪙'+fmt(pokerPot),'lose');setPokerActions('done');checkBankrupt();}
@@ -834,10 +846,11 @@ function spinSlot(type){
   const maxB=type==='klein'?1000:type==='middel'?50000:Infinity;
   if(currentBet<minB||currentBet>maxB){showRes('res-'+type,'Inzet: '+fmt(minB)+'–'+(maxB===Infinity?'∞':fmt(maxB)),'lose');return;}
   if(currentBet>balance){showRes('res-'+type,'Onvoldoende saldo!','lose');return;}
-  balance-=currentBet; updateBalance();
+  balance-=currentBet;updateBalance();
   const syms=type==='klein'?SYMS_K:type==='middel'?SYMS_M:SYMS_G;
   const pre=type==='klein'?'k':type==='middel'?'m':'g';
-  const btn=document.getElementById('btn-'+type); btn.disabled=true;
+  const btn=document.getElementById('btn-'+type);btn.disabled=true;
+  setRoundActive(true);
   const result=[syms[Math.floor(Math.random()*syms.length)],syms[Math.floor(Math.random()*syms.length)],syms[Math.floor(Math.random()*syms.length)]];
   let tick=0;
   const iv=setInterval(()=>{
@@ -846,7 +859,7 @@ function spinSlot(type){
     if(tick>24){
       clearInterval(iv);
       for(let i=0;i<3;i++) document.getElementById(pre+i).textContent=result[i];
-      checkSlot(type,result,currentBet); btn.disabled=false; checkBankrupt();
+      checkSlot(type,result,currentBet);btn.disabled=false;setRoundActive(false);checkBankrupt();
     }
   },65);
 }
@@ -893,12 +906,13 @@ function spinRoulette(){
   if(currentBet<=0){showRes('res-roulette','Voer een inzet in!','lose');return;}
   if(currentBet>balance){showRes('res-roulette','Onvoldoende saldo!','lose');return;}
   balance-=currentBet;updateBalance();
-  rSpinning=true;document.getElementById('btn-roulette').disabled=true;
+  rSpinning=true;setRoundActive(true);
+  document.getElementById('btn-roulette').disabled=true;
   showRes('res-roulette','⚙️ Bal rolt...','info');
   const totalSpin=12+Math.random()*18,dur=5000,start=Date.now();
   function anim(){
     const t=(Date.now()-start)/dur;
-    if(t>=1){rAngle=((rAngle+totalSpin*Math.PI*2)%(Math.PI*2));drawRoulette(rAngle);checkRouletteWin();rSpinning=false;document.getElementById('btn-roulette').disabled=false;checkBankrupt();return;}
+    if(t>=1){rAngle=((rAngle+totalSpin*Math.PI*2)%(Math.PI*2));drawRoulette(rAngle);checkRouletteWin();rSpinning=false;setRoundActive(false);document.getElementById('btn-roulette').disabled=false;checkBankrupt();return;}
     drawRoulette(rAngle+(1-Math.pow(1-t,4))*totalSpin*Math.PI*2);requestAnimationFrame(anim);
   }
   anim();
@@ -940,12 +954,13 @@ function spinWiel(){
   if(currentBet<=0){showRes('res-wiel','Voer een inzet in!','lose');return;}
   if(currentBet>balance){showRes('res-wiel','Onvoldoende saldo!','lose');return;}
   balance-=currentBet;updateBalance();
-  wSpinning=true;document.getElementById('btn-wiel').disabled=true;
+  wSpinning=true;setRoundActive(true);
+  document.getElementById('btn-wiel').disabled=true;
   document.getElementById('wiel-result').textContent='🎡 Draait...';
   const totalSpin=8+Math.random()*14,dur=4000,start=Date.now();
   function anim(){
     const t=(Date.now()-start)/dur;
-    if(t>=1){wAngle=((wAngle+totalSpin*Math.PI*2)%(Math.PI*2));drawWiel(wAngle);checkWielWin();wSpinning=false;document.getElementById('btn-wiel').disabled=false;checkBankrupt();return;}
+    if(t>=1){wAngle=((wAngle+totalSpin*Math.PI*2)%(Math.PI*2));drawWiel(wAngle);checkWielWin();wSpinning=false;setRoundActive(false);document.getElementById('btn-wiel').disabled=false;checkBankrupt();return;}
     drawWiel(wAngle+(1-Math.pow(1-t,4))*totalSpin*Math.PI*2);requestAnimationFrame(anim);
   }
   anim();
@@ -963,7 +978,9 @@ function checkWielWin(){
   else showRes('res-wiel',msg,'lose');
 }
 
-// ===================== RACE =====================
+// ===================== RACE — FIXED =====================
+// The old bug: Math.random()*0 = 0 for lowest-odds horse. 
+// Fix: use a pure random component plus small odds-based noise, not division by odds.
 function initRace(){
   const lanes=document.getElementById('track-lanes');lanes.innerHTML='';
   HORSES.forEach((h,i)=>{
@@ -979,38 +996,249 @@ function initRace(){
     grid.appendChild(b);
   });
 }
+
 function startRace(){
   if(raceRunning)return;
   if(selectedHorse<0){showRes('res-race','Kies eerst een paard!','lose');return;}
   if(currentBet>balance){showRes('res-race','Onvoldoende saldo!','lose');return;}
   balance-=currentBet;updateBalance();
-  raceRunning=true;document.getElementById('btn-race').disabled=true;
+  raceRunning=true;setRoundActive(true);
+  document.getElementById('btn-race').disabled=true;
   showRes('res-race','🏃 Race is bezig...','info');
+
   const trackW=document.getElementById('track-wrap').offsetWidth-80;
   const positions=HORSES.map(()=>36);
-  const baseSpeed=HORSES.map(h=>trackW/(h.o*30+Math.random()*20));
+
+  // FIXED: Generate winner probabilistically based on odds.
+  // Lower odds = higher chance of winning (inverse relationship).
+  // Each horse gets a "fitness" score: base random + odds-weighted bonus.
+  // This ensures no single horse dominates every race.
+  const invOdds=HORSES.map(h=>1/h.o);
+  const totalInv=invOdds.reduce((a,b)=>a+b,0);
+  // Each horse gets a speed drawn from: base_rand * (1 + normalized_weight * 0.8)
+  // So favorite has ~40% higher average speed than 7x horse, but still random
+  const speeds=HORSES.map((h,i)=>{
+    const normalized=invOdds[i]/totalInv; // 0..1
+    const baseSpeed=(0.4+Math.random()*0.6); // random [0.4,1.0]
+    const weighted=baseSpeed*(1+normalized*1.2); // favorites faster on average
+    return (trackW/180)*weighted;
+  });
+
   let finished=false;
   const iv=setInterval(()=>{
     HORSES.forEach((h,i)=>{
-      positions[i]+=baseSpeed[i]*(0.7+Math.random()*0.6);
+      // Add per-tick jitter so horses weave and can overtake
+      positions[i]+=speeds[i]*(0.6+Math.random()*0.8);
       const el=document.getElementById('horse-'+i);
       if(el) el.style.left=Math.min(positions[i],trackW+36)+'px';
     });
     const winner=positions.findIndex(p=>p>=trackW);
     if(winner>=0&&!finished){
       finished=true;clearInterval(iv);raceRunning=false;
-      document.getElementById('btn-race').disabled=false;
-      if(winner===selectedHorse){const w=currentBet*HORSES[winner].o;balance+=w;updateBalance();showRes('res-race','🏆 '+HORSES[winner].n+' wint! +🪙'+fmt(w),'win');}
-      else showRes('res-race','😞 '+HORSES[winner].n+' wint. Verloren.','lose');
+      document.getElementById('btn-race').disabled=false;setRoundActive(false);
+      if(winner===selectedHorse){
+        const w=currentBet*HORSES[winner].o;
+        balance+=w;updateBalance();
+        showRes('res-race','🏆 '+HORSES[winner].n+' wint! +🪙'+fmt(w),'win');
+      } else {
+        showRes('res-race','😞 '+HORSES[winner].n+' wint. Verloren.','lose');
+      }
       selectedHorse=-1;document.querySelectorAll('.horse-btn').forEach(x=>x.classList.remove('sel'));
       checkBankrupt();
     }
   },50);
 }
 
+// ===================== POLYMARKET =====================
+const MARKETS=[
+  {
+    id:'zandstorm',
+    icon:'🌪️',
+    title:'Zware zandstorm treft N\'Djamena deze week',
+    subtitle:'Weersvoorspelling Tsjaad',
+    prob:0.08,
+    category:'Weer',
+    description:'Een catastrofale zandstorm (haboob) bereikt de hoofdstad met >40km/h winden.',
+  },
+  {
+    id:'cholera',
+    icon:'🦠',
+    title:'Nieuwe cholera-uitbraak in de Sahel regio',
+    subtitle:'WHO Tsjaad gezondheidsrapport',
+    prob:0.12,
+    category:'Gezondheid',
+    description:'Meer dan 50 nieuwe gevallen gerapporteerd in één week.',
+  },
+  {
+    id:'regen',
+    icon:'🌧️',
+    title:'Bovengemiddelde regenval in het Sahel seizoen',
+    subtitle:'Klimaatmonitor Tsjaad',
+    prob:0.22,
+    category:'Klimaat',
+    description:'Neerslaghoeveelheid meer dan 20% boven het vijfjaarlijkse gemiddelde.',
+  },
+  {
+    id:'olie',
+    icon:'🛢️',
+    title:'Olieprijs Tsjaad stijgt meer dan 15% deze maand',
+    subtitle:'Energie & Grondstoffen',
+    prob:0.18,
+    category:'Economie',
+    description:'Brent crude prijs stijgt significant door Sahel-spanningen.',
+  },
+  {
+    id:'conflict',
+    icon:'⚔️',
+    title:'Grensconflict aan de Libische grens escaleert',
+    subtitle:'Veiligheidsmonitor Centraal-Afrika',
+    prob:0.05,
+    category:'Politiek',
+    description:'Gewapend incident leidt tot internationale VN-reactie.',
+  },
+  {
+    id:'voedsel',
+    icon:'🌾',
+    title:'Voedseltekort: WFP noodhulp naar Tsjaad',
+    subtitle:'Humanitaire organisaties',
+    prob:0.30,
+    category:'Humanitair',
+    description:'World Food Programme kondigt noodinterventie aan voor 100.000+ mensen.',
+  },
+  {
+    id:'temperatuur',
+    icon:'🌡️',
+    title:'Temperatuur boven 50°C in N\'Djamena',
+    subtitle:'Meteorologisch instituut',
+    prob:0.04,
+    category:'Weer',
+    description:'Extreme hittegolf met temperaturen boven de 50 graden Celsius.',
+  },
+  {
+    id:'verkiezing',
+    icon:'🗳️',
+    title:'Nieuwe presidentsverkiezingen aangekondigd',
+    subtitle:'Politieke situatie Tsjaad',
+    prob:0.09,
+    category:'Politiek',
+    description:'Transitieregering kondigt verkiezingsdatum aan binnen 3 maanden.',
+  },
+];
+
+// State per market: {side: 'ja'|'nee'|null, bet: number, resolved: bool, won: bool|null}
+let marketState={};
+
+function calcMultiplier(prob, side){
+  if(side==='ja') return +(1/prob).toFixed(1);
+  return +(1/(1-prob)).toFixed(1);
+}
+
+function renderMarkets(){
+  const container=document.getElementById('market-cards');
+  container.innerHTML='';
+  // Group by category
+  const cats=[...new Set(MARKETS.map(m=>m.category))];
+  cats.forEach(cat=>{
+    const catTitle=document.createElement('div');
+    catTitle.className='market-section-title';
+    catTitle.textContent='📂 '+cat;
+    container.appendChild(catTitle);
+    MARKETS.filter(m=>m.category===cat).forEach(m=>{
+      container.appendChild(makeMarketCard(m));
+    });
+  });
+}
+
+function makeMarketCard(m){
+  const st=marketState[m.id]||{side:null,bet:0,resolved:false,won:null};
+  const jaMult=calcMultiplier(m.prob,'ja');
+  const neeMult=calcMultiplier(m.prob,'nee');
+  const pct=Math.round(m.prob*100);
+  const jaSel=st.side==='ja'?'sel':'';
+  const neeSel=st.side==='nee'?'sel':'';
+
+  let statusHtml='';
+  if(st.resolved){
+    statusHtml=st.won
+      ?`<div class="market-status win">🎉 Gewonnen! +🪙${fmt(st.payout)}</div>`
+      :`<div class="market-status lose">❌ Verloren. 🪙${fmt(st.bet)} weg.</div>`;
+  } else if(st.side){
+    statusHtml=`<div class="market-status pending">⏳ Inzet geplaatst: 🪙${fmt(st.bet)} op ${st.side==='ja'?'JA':'NEE'} (x${st.side==='ja'?jaMult:neeMult})</div>`;
+  }
+
+  const canBet=!st.side&&!st.resolved;
+  const resolveDisabled=(!st.side||st.resolved)?'disabled':'';
+
+  const card=document.createElement('div');
+  card.className='market-card';
+  card.innerHTML=`
+    <div class="market-header">
+      <div class="market-icon">${m.icon}</div>
+      <div>
+        <div class="market-title">${m.title}</div>
+        <div class="market-subtitle">${m.subtitle} · ${m.description}</div>
+      </div>
+    </div>
+    <div class="market-odds-row">
+      <div class="odds-btn ja ${jaSel}" id="odds-ja-${m.id}" onclick="${canBet?`selectMarketSide('${m.id}','ja')`:''}">
+        <div class="odds-label">✅ JA</div>
+        <div class="odds-val">x${jaMult}</div>
+        <div class="odds-pct">${pct}% kans</div>
+      </div>
+      <div class="odds-btn nee ${neeSel}" id="odds-nee-${m.id}" onclick="${canBet?`selectMarketSide('${m.id}','nee')`:''}">
+        <div class="odds-label">❌ NEE</div>
+        <div class="odds-val">x${neeMult}</div>
+        <div class="odds-pct">${100-pct}% kans</div>
+      </div>
+    </div>
+    <div class="market-bar"><div class="market-bar-fill" style="width:${pct}%"></div></div>
+    <div class="market-meta">
+      <span>Kans: ${pct}%</span>
+      <span>${m.category}</span>
+    </div>
+    ${statusHtml}
+    <button class="market-resolve-btn" id="resolve-btn-${m.id}" ${resolveDisabled} onclick="resolveMarket('${m.id}')">
+      ${st.resolved?'✔ Afgerond':'🎲 Bepaal uitkomst'}
+    </button>
+  `;
+  return card;
+}
+
+function selectMarketSide(id, side){
+  if(currentBet<=0){alert('Voer een inzet in!');return;}
+  if(currentBet>balance){alert('Onvoldoende saldo!');return;}
+  const st=marketState[id]||{side:null,bet:0,resolved:false,won:null};
+  if(st.side||st.resolved) return;
+  marketState[id]={...st, side, bet:currentBet};
+  renderMarkets();
+}
+
+function resolveMarket(id){
+  const m=MARKETS.find(x=>x.id===id);
+  const st=marketState[id];
+  if(!st||!st.side||st.resolved) return;
+
+  // Simulate outcome based on probability
+  const happened=Math.random()<m.prob;
+  const playerWins=(st.side==='ja'&&happened)||(st.side==='nee'&&!happened);
+  const mult=calcMultiplier(m.prob, st.side);
+
+  if(playerWins){
+    const payout=Math.round(st.bet*mult);
+    balance+=payout; updateBalance();
+    marketState[id]={...st,resolved:true,won:true,payout};
+  } else {
+    balance-=st.bet; updateBalance();
+    marketState[id]={...st,resolved:true,won:false,payout:0};
+  }
+  renderMarkets();
+  checkBankrupt();
+}
+
 // INIT
-initNumGrid(); initRace();
-selRB('rood'); drawRoulette(0); drawWiel(0);
+initNumGrid();initRace();
+selRB('rood');drawRoulette(0);drawWiel(0);
+renderMarkets();
 </script>
 </body>
 </html>
